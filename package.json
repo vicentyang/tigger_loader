@@ -1,0 +1,16 @@
+{
+  "name": "laya-loader",
+  "version": "1.0.0",
+  "description": "webpack load for laya component",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webpack",
+    "laya",
+    "loader"
+  ],
+  "author": "huaguzheng",
+  "license": "MIT"
+}
