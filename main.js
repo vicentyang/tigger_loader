@@ -3,11 +3,12 @@ module.exports = function (context) {
   return context + `
     declare var module;
     declare var require;
-    var app = require('../ctrl/ApplicationOut.ts').default;
+    var app = require('../../laya/src').default;
     if (module.hot) {
         module.hot.accept();
         module.hot.dispose(function(data) {
-            app.clearCptAllData('Spin');
+            app.clearCptAllData(${cptName});
+            var curSence = app.getCurSence();
             var vm = app.componentDataMap;
             var cl = new Map();
             var keys = vm.keys();
@@ -24,7 +25,7 @@ module.exports = function (context) {
                 cl.set(next.value, ineRet);
             }
             setTimeout(() => {
-                app.buildSence('Preload', app.sence.get('Preload'), cl, ['Spin']);
+                app.buildSence(curSence, app.sence.get(curSence), cl, [${cptName}]);
             }, 32);
         });
     }
