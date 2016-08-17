@@ -1,13 +1,15 @@
+var path = require('path');
+
 module.exports = function (context) {
-  var cptName = this.resource.match(/\\([A-Z]\w+)LayaComponent.ts$/)[1];
+  var cptName = path.basename(this.resource, '.ts').replace('_lc', '');
   return context + `
     declare var module;
     declare var require;
-    var app = require('../../laya/src').default;
+    var app = require('laya').default;
     if (module.hot) {
         module.hot.accept();
         module.hot.dispose(function(data) {
-            app.clearCptAllData(${cptName});
+            app.clearCptAllData('${cptName}');
             var curSence = app.getCurSence();
             var vm = app.componentDataMap;
             var cl = new Map();
@@ -25,7 +27,8 @@ module.exports = function (context) {
                 cl.set(next.value, ineRet);
             }
             setTimeout(() => {
-                app.buildSence(curSence, app.sence.get(curSence), cl, [${cptName}]);
+                app.destoryCptForSence(curSence);
+                app.buildSence(curSence, app.sence.get(curSence), cl, ['${cptName}']);
             }, 32);
         });
     }
