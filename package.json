@@ -1,6 +1,6 @@
 {
   "name": "laya-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "webpack load for laya component",
   "main": "main.js",
   "scripts": {
