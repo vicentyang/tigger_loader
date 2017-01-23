@@ -1,6 +1,6 @@
 {
-  "name": "laya-loader",
-  "version": "1.0.1",
+  "name": "tigger_loader",
+  "version": "1.0.2",
   "description": "webpack load for laya component",
   "main": "main.js",
   "scripts": {
@@ -11,6 +11,6 @@
     "laya",
     "loader"
   ],
-  "author": "huaguzheng",
+  "author": "vicentyang",
   "license": "MIT"
 }

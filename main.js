@@ -8,7 +8,7 @@ module.exports = function (context) {
       return context + `
         declare var module;
         declare var require;
-        var _laya = require('laya').default;
+        var _laya = require('tigger_laya').default;
         if (module.hot) {
             module.hot.accept();
             module.hot.dispose(function(data) {
@@ -23,7 +23,7 @@ module.exports = function (context) {
       return context + `
         declare var module;
         declare var require;
-        var _laya = require('laya').default;
+        var _laya = require('tigger_laya').default;
         if (module.hot) {
             module.hot.accept();
             module.hot.dispose(function(data) {
